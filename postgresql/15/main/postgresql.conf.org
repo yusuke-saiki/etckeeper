@@ -57,7 +57,7 @@ external_pid_file = '/var/run/postgresql/15-main.pid'			# write an extra PID fil
 
 # - Connection Settings -
 
-listen_addresses = '*'		# what IP address(es) to listen on;
+#listen_addresses = 'localhost'		# what IP address(es) to listen on;
 					# comma-separated list of addresses;
 					# defaults to 'localhost'; use '*' for all
 					# (change requires restart)
@@ -124,21 +124,21 @@ ssl_key_file = '/etc/ssl/private/ssl-cert-snakeoil.key'
 
 # - Memory -
 
-shared_buffers = 512MB			# min 128kB
+shared_buffers = 128MB			# min 128kB
 					# (change requires restart)
 #huge_pages = try			# on, off, or try
 					# (change requires restart)
 #huge_page_size = 0			# zero for system default
 					# (change requires restart)
-temp_buffers = 8MB			# min 800kB
+#temp_buffers = 8MB			# min 800kB
 #max_prepared_transactions = 0		# zero disables the feature
 					# (change requires restart)
 # Caution: it is not advisable to set max_prepared_transactions nonzero unless
 # you actively intend to use prepared transactions.
-work_mem = 4MB				# min 64kB
+#work_mem = 4MB				# min 64kB
 #hash_mem_multiplier = 2.0		# 1-1000.0 multiplier on hash table work_mem
-maintenance_work_mem = 64MB		# min 1MB
-autovacuum_work_mem = -1		# min 1MB, or -1 to use maintenance_work_mem
+#maintenance_work_mem = 64MB		# min 1MB
+#autovacuum_work_mem = -1		# min 1MB, or -1 to use maintenance_work_mem
 #logical_decoding_work_mem = 64MB	# min 64kB
 #max_stack_depth = 2MB			# min 100kB
 #shared_memory_type = mmap		# the default is the first option
@@ -158,12 +158,12 @@ dynamic_shared_memory_type = posix	# the default is usually the first option
 
 # - Disk -
 
-temp_file_limit = -1			# limits per-process temp file space
+#temp_file_limit = -1			# limits per-process temp file space
 					# in kilobytes, or -1 for no limit
 
 # - Kernel Resources -
 
-max_files_per_process = 1000		# min 64
+#max_files_per_process = 1000		# min 64
 					# (change requires restart)
 
 # - Cost-Based Vacuum Delay -
@@ -202,12 +202,12 @@ max_files_per_process = 1000		# min 64
 
 # - Settings -
 
-wal_level = replica			# minimal, replica, or logical
+#wal_level = replica			# minimal, replica, or logical
 					# (change requires restart)
 #fsync = on				# flush data to disk for crash safety
 					# (turning this off can cause
 					# unrecoverable data corruption)
-synchronous_commit = off		# synchronization level;
+#synchronous_commit = on		# synchronization level;
 					# off, local, remote_write, remote_apply, or on
 #wal_sync_method = fsync		# the default is the first option
 					# supported by the operating system:
@@ -217,13 +217,13 @@ synchronous_commit = off		# synchronization level;
 					#   fsync_writethrough
 					#   open_sync
 #full_page_writes = on			# recover from partial page writes
-wal_log_hints = on			# also do full page writes of non-critical updates
+#wal_log_hints = off			# also do full page writes of non-critical updates
 					# (change requires restart)
 #wal_compression = off			# enables compression of full-page writes;
 					# off, pglz, lz4, zstd, or on
 #wal_init_zero = on			# zero-fill new WAL files
 #wal_recycle = on			# recycle WAL files
-wal_buffers = -1			# min 32kB, -1 sets based on shared_buffers
+#wal_buffers = -1			# min 32kB, -1 sets based on shared_buffers
 					# (change requires restart)
 #wal_writer_delay = 200ms		# 1-10000 milliseconds
 #wal_writer_flush_after = 1MB		# measured in pages, 0 disables
@@ -234,7 +234,7 @@ wal_buffers = -1			# min 32kB, -1 sets based on shared_buffers
 
 # - Checkpoints -
 
-checkpoint_timeout = 30min		# range 30s-1d
+#checkpoint_timeout = 5min		# range 30s-1d
 #checkpoint_completion_target = 0.9	# checkpoint target duration, 0.0 - 1.0
 #checkpoint_flush_after = 256kB		# measured in pages, 0 disables
 #checkpoint_warning = 30s		# 0 disables
@@ -249,12 +249,12 @@ min_wal_size = 80MB
 
 # - Archiving -
 
-archive_mode = on		# enables archiving; off, on, or always
+#archive_mode = off		# enables archiving; off, on, or always
 				# (change requires restart)
 #archive_library = ''		# library to use to archive a logfile segment
 				# (empty string indicates archive_command should
 				# be used)
-archive_command = 'cp %p /backup/arch/%f'		# command to use to archive a logfile segment
+#archive_command = ''		# command to use to archive a logfile segment
 				# placeholders: %p = path of file to archive
 				#               %f = file name only
 				# e.g. 'test ! -f /mnt/server/archivedir/%f && cp %p /mnt/server/archivedir/%f'
@@ -265,7 +265,7 @@ archive_command = 'cp %p /backup/arch/%f'		# command to use to archive a logfile
 
 # These are only used in recovery mode.
 
-restore_command = 'cp /backup/arch/%f %p'		# command to use to restore an archived logfile segment
+#restore_command = ''		# command to use to restore an archived logfile segment
 				# placeholders: %p = path of file to restore
 				#               %f = file name only
 				# e.g. 'cp /mnt/server/archivedir/%f %p'
@@ -281,7 +281,7 @@ restore_command = 'cp /backup/arch/%f %p'		# command to use to restore an archiv
 				# (change requires restart)
 #recovery_target_name = ''	# the named restore point to which recovery will proceed
 				# (change requires restart)
-recovery_target_time = ''	# the time stamp up to which recovery will proceed
+#recovery_target_time = ''	# the time stamp up to which recovery will proceed
 				# (change requires restart)
 #recovery_target_xid = ''	# the transaction ID up to which recovery will proceed
 				# (change requires restart)
@@ -293,7 +293,7 @@ recovery_target_time = ''	# the time stamp up to which recovery will proceed
 				# (change requires restart)
 #recovery_target_timeline = 'latest'	# 'current', 'latest', or timeline ID
 				# (change requires restart)
-recovery_target_action = 'promote'	# 'pause', 'promote', 'shutdown'
+#recovery_target_action = 'pause'	# 'pause', 'promote', 'shutdown'
 				# (change requires restart)
 
 
@@ -305,11 +305,11 @@ recovery_target_action = 'promote'	# 'pause', 'promote', 'shutdown'
 
 # Set these on the primary and on any standby that will send replication data.
 
-max_wal_senders = 10		# max number of walsender processes
+#max_wal_senders = 10		# max number of walsender processes
 				# (change requires restart)
 #max_replication_slots = 10	# max number of replication slots
 				# (change requires restart)
-wal_keep_size = 480		# in megabytes; 0 disables
+#wal_keep_size = 0		# in megabytes; 0 disables
 #max_slot_wal_keep_size = -1	# in megabytes; -1 disables
 #wal_sender_timeout = 60s	# in milliseconds; 0 disables
 #track_commit_timestamp = off	# collect timestamp of transaction commit
@@ -319,7 +319,7 @@ wal_keep_size = 480		# in megabytes; 0 disables
 
 # These settings are ignored on a standby server.
 
-synchronous_standby_names = ''	# standby servers that provide sync rep
+#synchronous_standby_names = ''	# standby servers that provide sync rep
 				# method to choose sync standbys, number of sync standbys,
 				# and comma-separated list of application_name
 				# from standby(s); '*' = all
@@ -329,10 +329,10 @@ synchronous_standby_names = ''	# standby servers that provide sync rep
 
 # These settings are ignored on a primary server.
 
-primary_conninfo = 'host=pgsql_VIP port=5432 user=rep_user'			# connection string to sending server
+#primary_conninfo = ''			# connection string to sending server
 #primary_slot_name = ''			# replication slot on sending server
 #promote_trigger_file = ''		# file name whose presence ends recovery
-hot_standby = on			# "off" disallows queries during recovery
+#hot_standby = on			# "off" disallows queries during recovery
 					# (change requires restart)
 #max_standby_archive_delay = 30s	# max delay before canceling queries
 					# when reading WAL from archive;
@@ -400,7 +400,7 @@ hot_standby = on			# "off" disallows queries during recovery
 #parallel_tuple_cost = 0.1		# same scale as above
 #min_parallel_table_scan_size = 8MB
 #min_parallel_index_scan_size = 512kB
-effective_cache_size = 1GB
+#effective_cache_size = 4GB
 
 #jit_above_cost = 100000		# perform JIT compilation if available
 					# and query more expensive than this;
@@ -441,31 +441,31 @@ effective_cache_size = 1GB
 
 # - Where to Log -
 
-log_destination = 'stderr'		# Valid values are combinations of
+#log_destination = 'stderr'		# Valid values are combinations of
 					# stderr, csvlog, jsonlog, syslog, and
 					# eventlog, depending on platform.
 					# csvlog and jsonlog require
 					# logging_collector to be on.
 
 # This is used when logging to stderr:
-logging_collector = on		# Enable capturing of stderr, jsonlog,
+#logging_collector = off		# Enable capturing of stderr, jsonlog,
 					# and csvlog into log files. Required
 					# to be on for csvlogs and jsonlogs.
 					# (change requires restart)
 
 # These are only used if logging_collector is on:
-log_directory = 'log'			# directory where log files are written,
+#log_directory = 'log'			# directory where log files are written,
 					# can be absolute or relative to PGDATA
-log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'	# log file name pattern,
+#log_filename = 'postgresql-%Y-%m-%d_%H%M%S.log'	# log file name pattern,
 					# can include strftime() escapes
 #log_file_mode = 0600			# creation mode for log files,
 					# begin with 0 to use octal notation
-log_rotation_age = 1d			# Automatic rotation of logfiles will
+#log_rotation_age = 1d			# Automatic rotation of logfiles will
 					# happen after that time.  0 disables.
-log_rotation_size = 10MB		# Automatic rotation of logfiles will
+#log_rotation_size = 10MB		# Automatic rotation of logfiles will
 					# happen after that much log output.
 					# 0 disables.
-log_truncate_on_rotation = on		# If on, an existing log file with the
+#log_truncate_on_rotation = off		# If on, an existing log file with the
 					# same name as the new log file will be
 					# truncated rather than appended to.
 					# But such truncation only occurs on
@@ -551,8 +551,8 @@ log_truncate_on_rotation = on		# If on, an existing log file with the
 					# actions running at least this number
 					# of milliseconds.
 #log_checkpoints = on
-log_connections = on
-log_disconnections = on
+#log_connections = off
+#log_disconnections = off
 #log_duration = off
 #log_error_verbosity = default		# terse, default, or verbose messages
 #log_hostname = off
@@ -590,7 +590,7 @@ log_line_prefix = '%m [%p] %q%u@%d '		# special values:
 					# bind-parameter values to N bytes;
 					# -1 means print in full, 0 disables
 #log_statement = 'none'			# none, ddl, mod, all
-log_replication_commands = on
+#log_replication_commands = off
 #log_temp_files = -1			# log temporary files equal or larger
 					# than the specified size in kilobytes;
 					# -1 disables, 0 logs all temp files
@@ -724,7 +724,7 @@ timezone = 'Asia/Tokyo'
 					# encoding
 
 # These settings are initialized by initdb, but they can be changed.
-lc_messages = 'C'			# locale for system error message
+lc_messages = 'en_US.UTF-8'			# locale for system error message
 					# strings
 lc_monetary = 'en_US.UTF-8'			# locale for monetary formatting
 lc_numeric = 'en_US.UTF-8'			# locale for number formatting
@@ -752,8 +752,8 @@ default_text_search_config = 'pg_catalog.english'
 # LOCK MANAGEMENT
 #------------------------------------------------------------------------------
 
-deadlock_timeout = 2000s
-max_locks_per_transaction = 64		# min 10
+#deadlock_timeout = 1s
+#max_locks_per_transaction = 64		# min 10
 					# (change requires restart)
 #max_pred_locks_per_transaction = 64	# min 10
 					# (change requires restart)
