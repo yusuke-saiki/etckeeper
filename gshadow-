@@ -57,3 +57,6 @@ landscape:!::
 fwupd-refresh:!::
 sysadm:!::
 netdev:!::
+plocate:!::
+ssl-cert:!::
+postgres:!::
