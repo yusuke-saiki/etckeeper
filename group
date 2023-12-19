@@ -56,3 +56,5 @@ tss:x:116:
 landscape:x:117:
 fwupd-refresh:x:118:
 sysadm:x:1000:
+netdev:x:119:
+plocate:x:120:

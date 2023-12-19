@@ -2,7 +2,7 @@ root:x:0:
 daemon:x:1:
 bin:x:2:
 sys:x:3:
-adm:x:4:syslog
+adm:x:4:syslog,sysadm
 tty:x:5:
 disk:x:6:
 lp:x:7:
@@ -15,12 +15,12 @@ kmem:x:15:
 dialout:x:20:
 fax:x:21:
 voice:x:22:
-cdrom:x:24:
+cdrom:x:24:sysadm
 floppy:x:25:
 tape:x:26:
-sudo:x:27:
+sudo:x:27:sysadm
 audio:x:29:
-dip:x:30:
+dip:x:30:sysadm
 www-data:x:33:
 backup:x:34:
 operator:x:37:
@@ -32,7 +32,7 @@ shadow:x:42:
 utmp:x:43:
 video:x:44:
 sasl:x:45:
-plugdev:x:46:
+plugdev:x:46:sysadm
 staff:x:50:
 games:x:60:
 users:x:100:
@@ -46,7 +46,7 @@ input:x:106:
 sgx:x:107:
 kvm:x:108:
 render:x:109:
-lxd:x:110:
+lxd:x:110:sysadm
 _ssh:x:111:
 crontab:x:112:
 syslog:x:113:
@@ -55,3 +55,5 @@ tcpdump:x:115:
 tss:x:116:
 landscape:x:117:
 fwupd-refresh:x:118:
+sysadm:x:1000:
+netdev:x:119:

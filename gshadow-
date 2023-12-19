@@ -2,7 +2,7 @@ root:*::
 daemon:*::
 bin:*::
 sys:*::
-adm:*::syslog
+adm:*::syslog,sysadm
 tty:*::
 disk:*::
 lp:*::
@@ -15,12 +15,12 @@ kmem:*::
 dialout:*::
 fax:*::
 voice:*::
-cdrom:*::
+cdrom:*::sysadm
 floppy:*::
 tape:*::
-sudo:*::
+sudo:*::sysadm
 audio:*::
-dip:*::
+dip:*::sysadm
 www-data:*::
 backup:*::
 operator:*::
@@ -32,7 +32,7 @@ shadow:*::
 utmp:*::
 video:*::
 sasl:*::
-plugdev:*::
+plugdev:*::sysadm
 staff:*::
 games:*::
 users:*::
@@ -46,7 +46,7 @@ input:!::
 sgx:!::
 kvm:!::
 render:!::
-lxd:!::
+lxd:!::sysadm
 _ssh:!::
 crontab:!::
 syslog:!::
@@ -55,3 +55,5 @@ tcpdump:!::
 tss:!::
 landscape:!::
 fwupd-refresh:!::
+sysadm:!::
+netdev:!::
