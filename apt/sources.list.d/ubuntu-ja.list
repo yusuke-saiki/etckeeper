@@ -1,0 +1,6 @@
+## Ubuntu Japanese LoCo Team's repository
+## Please report any bugs to https://bugs.launchpad.net/ubuntu-jp-improvement
+deb http://archive.ubuntulinux.jp/ubuntu jammy main
+deb-src http://archive.ubuntulinux.jp/ubuntu jammy main
+deb http://archive.ubuntulinux.jp/ubuntu-ja-non-free jammy multiverse
+deb-src http://archive.ubuntulinux.jp/ubuntu-ja-non-free jammy multiverse
