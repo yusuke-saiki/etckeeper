@@ -1,0 +1,7 @@
+#
+prefix /usr
+datarootdir ${prefix}/share
+datadir ${datarootdir}
+ANTHYDIR ${datarootdir}/anthy/
+DIC_FILE ${datarootdir}/anthy/anthy.dic
+ZIPDICT ${datarootdir}/anthy/zipcode.t
