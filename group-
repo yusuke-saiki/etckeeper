@@ -58,5 +58,5 @@ fwupd-refresh:x:118:
 sysadm:x:1000:
 netdev:x:119:
 plocate:x:120:
-ssl-cert:x:121:
+ssl-cert:x:121:postgres
 postgres:x:122:

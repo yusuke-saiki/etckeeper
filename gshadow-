@@ -58,5 +58,5 @@ fwupd-refresh:!::
 sysadm:!::
 netdev:!::
 plocate:!::
-ssl-cert:!::
+ssl-cert:!::postgres
 postgres:!::
