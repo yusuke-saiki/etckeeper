@@ -30,7 +30,7 @@ src:*::
 gnats:*::
 shadow:*::
 utmp:*::
-video:*::
+video:*::sysadm
 sasl:*::
 plugdev:*::sysadm
 staff:*::
