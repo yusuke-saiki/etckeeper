@@ -11,4 +11,4 @@ ff02::2 ip6-allrouters
 172.30.24.154 csc-sv15.sensor.newcosmos csc-sv15
 172.30.24.155 csc-sv16.sensor.newcosmos csc-sv16
 172.30.24.156 csc-sv17.sensor.newcosmos csc-sv17
-172.30.24.136 pgsql_VIP
+172.30.24.136 pgsql_vip
