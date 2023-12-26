@@ -11,6 +11,5 @@ APT
 {
   NeverAutoRemove
   {
-    "^postgresql.*-15";
   };
 };
